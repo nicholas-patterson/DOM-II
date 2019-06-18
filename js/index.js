@@ -60,3 +60,7 @@ body.addEventListener("mouseover", event => {
 window.addEventListener("scroll", event => {
   nav.style.backgroundColor = "crimson";
 });
+
+const photo = document.querySelector("#photo");
+TweenLite.to(photo, 2, { width: "800px", height: "300px" });
+TweenLite.to(photo, 2, { boxShadow: "0px 0px 20px black", color: "#FC0" });
