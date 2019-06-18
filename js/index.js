@@ -51,16 +51,26 @@ const letsGo = document.querySelector(".content-section .text-content .letsGo");
 body.addEventListener("mouseover", event => {
   if (event.screenX > 3912 && event.screenX < 4716) {
     event.stopPropagation();
-    letsGo.innerHTML = "<h1>Main Content</h1>";
+    letsGo.innerHTML = "<h1>Let's Go!</h1>";
   } else {
-    letsGo.innerHTML = "<h1>GET OFF MY CONTAINER</h1>";
+    letsGo.innerHTML = "<h1>Come Back</h1>";
   }
-});
-
-window.addEventListener("scroll", event => {
-  nav.style.backgroundColor = "crimson";
 });
 
 const photo = document.querySelector("#photo");
 TweenLite.to(photo, 2, { width: "800px", height: "300px" });
 TweenLite.to(photo, 2, { boxShadow: "0px 0px 20px black", color: "#FC0" });
+
+body.addEventListener("keydown", event => {
+  if (event.keyCode === 40) {
+    mainHeading.textContent = "keydown";
+  } else if (event.keyCode === 38) {
+    mainHeading.textContent = "keyup";
+  } else {
+    return "Fun Bus";
+  }
+});
+
+// body.addEventListener("keyup", event => {
+//   mainHeading.textContent = "key up";
+// });
