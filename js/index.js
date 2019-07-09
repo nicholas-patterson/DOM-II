@@ -50,3 +50,8 @@ secondaryHeading.forEach(heading => {
     mainHeading.textContent = "Fun bus";
   });
 });
+
+// Stretch Task
+
+let picture = document.getElementById("gsockPhoto");
+TweenLite.to(photo, 2, { width: "200px", height: "150px" });
