@@ -1,76 +1,57 @@
 // Your code goes here
 
-const mainHeading = document.querySelector(".nav-container .logo-heading");
+const mainHeading = document.querySelector(".logo-heading");
 
-mainHeading.addEventListener("mouseenter", event => {
-  mainHeading.style.color = "crimson";
+mainHeading.addEventListener("mouseover", event => {
+  mainHeading.style.fontSize = "70px";
 });
 
-mainHeading.addEventListener("mouseleave", event => {
-  mainHeading.style.color = "black";
+mainHeading.addEventListener("mouseout", event => {
+  mainHeading.style.fontSize = "40px";
 });
 
-const nav = document.querySelectorAll("header .nav a");
-nav.forEach(link => {
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach(link => {
   link.addEventListener("click", event => {
-    mainHeading.textContent = link.textContent;
+    link.style.color = "crimson";
     event.preventDefault();
   });
+});
 
-  link.addEventListener("mouseenter", event => {
-    link.style.color = "crimson";
-    event.stopPropagation();
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(button => {
+  button.addEventListener("click", event => {
+    button.textContent = "You Clicked On Me !";
+    button.style.backgroundColor = "crimson";
   });
-
-  link.addEventListener("mouseleave", event => {
-    link.style.color = "black";
-  });
-});
-
-const navContainer = document.querySelector(".main-navigation");
-
-navContainer.addEventListener("mouseleave", event => {
-  mainHeading.textContent = "Fun Bus";
-});
-
-// dbl click
-const footer = document.querySelector(".footer p");
-footer.addEventListener("dblclick", event => {
-  footer.innerHTML = "<p>Nicholas Patterson <span>&copy;</span> 2019</p>";
-});
-
-const welcomeText = document.querySelector(".intro h2");
-
-welcomeText.addEventListener("drag", event => {
-  mainHeading.textContent = "Put Me Down";
 });
 
 const body = document.querySelector("body");
-const letsGo = document.querySelector(".content-section .text-content .letsGo");
 
-body.addEventListener("mouseover", event => {
-  if (event.screenX > 3912 && event.screenX < 4716) {
-    event.stopPropagation();
-    letsGo.innerHTML = "<h1>Let's Go!</h1>";
-  } else {
-    letsGo.innerHTML = "<h1>Come Back</h1>";
-  }
+window.addEventListener("scroll", event => {
+  body.style.backgroundColor = "aliceblue";
 });
 
-const photo = document.querySelector("#photo");
-TweenLite.to(photo, 2, { width: "800px", height: "300px" });
-TweenLite.to(photo, 2, { boxShadow: "0px 0px 20px black", color: "#FC0" });
+const funBus = document.querySelector("#photo");
 
-body.addEventListener("keydown", event => {
-  if (event.keyCode === 40) {
-    mainHeading.textContent = "keydown";
-  } else if (event.keyCode === 38) {
-    mainHeading.textContent = "keyup";
-  } else {
-    return "Fun Bus";
-  }
+funBus.addEventListener("dblclick", event => {
+  funBus.style.display = "none";
 });
 
-// body.addEventListener("keyup", event => {
-//   mainHeading.textContent = "key up";
-// });
+secondaryHeading = document.querySelectorAll("h2");
+
+secondaryHeading.forEach(heading => {
+  heading.addEventListener("drag", event => {
+    mainHeading.textContent = "PUT ME DOWN !";
+  });
+  heading.addEventListener("mouseover", event => {
+    mainHeading.textContent = "Fun bus";
+  });
+});
+
+// Stretch Task
+
+let picture = document.getElementById("gsockPhoto");
+TweenLite.to(photo, 2, { width: "200px", height: "150px" });
